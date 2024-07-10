@@ -1,0 +1,51 @@
+.shopping-cart {
+    width: 100%;
+    z-index: 100;
+    top: 60px;
+    right: 0;
+    transform-origin: top;
+    animation: expandDown 0.3s ease-out forwards;
+}
+
+// .shopping-cart::before {
+//     content: '';
+//     width: 30px;
+//     position: absolute;
+//     top: -20px;
+//     right: 55px;
+//     transform: translateX(-50%);
+//     border-width: 10px;
+//     border-style: solid;
+//     border-color: transparent transparent #fff transparent;
+//     z-index: 100;
+// }
+
+@keyframes expandDown {
+    from {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.icon-button {
+    position: relative;
+}
+
+.user_navbar {
+    /* From https://css.glass */
+    background: rgba(8, 8, 8, 0.78);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.4px);
+    -webkit-backdrop-filter: blur(6.4px);
+
+    .user_navbar_menu {
+        background: rgba(8, 8, 8, 0.78);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6.4px);
+        -webkit-backdrop-filter: blur(6.4px);
+    }
+}
