@@ -30,14 +30,7 @@ export const Products: React.FC<IProductList> = ({ productsDetailList }) => {
     };
 
     return (
-        <Flex
-            style={{
-                display: 'grid',
-                gridTemplateColumns: 'auto auto auto auto',
-                gap: '30px',
-                marginTop: '20px',
-            }}
-        >
+        <>
             {productsDetailList.map((productDetail, index) => (
                 <Badge.Ribbon
                     text={productDetail.status}
@@ -46,24 +39,26 @@ export const Products: React.FC<IProductList> = ({ productsDetailList }) => {
                 >
                     <Card
                         hoverable
-                        style={{ width: 300 }}
-                        cover={<Image alt="img" width={300} height={300} src={productDetail.image_dir} />}
-                        actions={[
-                            <Tooltip placement="bottom" title="Share">
-                                <ShareAltOutlined
-                                    key="setting"
-                                    //  style={{ margin: '5px' }}
-                                />
-                            </Tooltip>,
-                            <Tooltip placement="bottom" title="Add">
-                                <PlusOutlined
-                                    key="addProduct"
-                                    // style={{ margin: '5px' }}
-                                    onClick={() => handleAddProduct(productDetail)}
-                                />
-                                ,
-                            </Tooltip>,
-                        ]}
+                        style={{ width: 300, backgroundColor: '#131212b8', border: 'none' }}
+                        cover={
+                            <Image alt="img" width={300} height={300} preview={false} src={productDetail.image_dir} />
+                        }
+                        // actions={[
+                        //     <Tooltip placement="bottom" title="Share">
+                        //         <ShareAltOutlined
+                        //             key="setting"
+                        //             //  style={{ margin: '5px' }}
+                        //         />
+                        //     </Tooltip>,
+                        //     <Tooltip placement="bottom" title="Add">
+                        //         <PlusOutlined
+                        //             key="addProduct"
+                        //             // style={{ margin: '5px' }}
+                        //             onClick={() => handleAddProduct(productDetail)}
+                        //         />
+                        //         ,
+                        //     </Tooltip>,
+                        // ]}
                     >
                         <div onClick={() => navigate(`/products/${productDetail.id}`)}>
                             <Card.Meta
@@ -77,7 +72,6 @@ export const Products: React.FC<IProductList> = ({ productsDetailList }) => {
                     </Card>
                 </Badge.Ribbon>
             ))}
-            <Outlet />
-        </Flex>
+        </>
     );
 };

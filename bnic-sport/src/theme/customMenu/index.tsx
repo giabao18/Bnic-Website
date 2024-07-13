@@ -8,3 +8,10 @@ export const CustomMenu = styled(Menu)({
     webkitBackdropFilter: 'blur(6.4px)',
     color: '#ffffff',
 });
+
+export const CustomMenuShopPage = styled(Menu)({
+    backgroundColor: 'transparent',
+    '&:active': {
+        backgroundColor: 'transparent',
+    }
+})

@@ -7,9 +7,14 @@ export const CustomInputFooter = styled(Input)({
     borderBottom: '1px solid',
     borderRadius: 0,
     backgroundColor: 'transparent',
-})
-
+    '&:focus': {
+        backgroundColor: 'transparent',
+    },
+    '&:hover': {
+        backgroundColor: 'transparent',
+    },
+});
 
 export const CustomInputWithoutBG = styled(Input)({
     backgroundColor: 'transparent',
-})
+});

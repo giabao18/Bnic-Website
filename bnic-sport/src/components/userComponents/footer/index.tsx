@@ -12,61 +12,13 @@ const { Text } = Typography;
 
 export const Footer = (props: Props) => {
     const { token } = theme.useToken();
+
     return (
         <Flex style={{ flexDirection: 'column' }}>
-            <Flex
-                style={{
-                    // width: '100%',
-                    height: '200px',
-                    justifyContent: 'space-around',
-                    backgroundColor: customColors.colorBgSecondary,
-                    marginTop: '50px',
-                }}
-            >
-                <Row style={{ gap: '10px', alignItems: 'center' }}>
-                    <img src={assets.highQuality} style={{ width: '60px', height: '60px' }} alt="" />
-                    <Flex style={{ flexDirection: 'column' }}>
-                        <Text style={{ fontSize: '25px', fontWeight: '600' }}>High Quality</Text>
-                        <Text style={{ fontSize: '20px', fontWeight: '500', color: customColors.lightGrayColor }}>
-                            Crafted from top materials
-                        </Text>
-                    </Flex>
-                </Row>
-                <Row style={{ gap: '10px', alignItems: 'center' }}>
-                    <img src={assets.warrantyProtection} style={{ width: '60px', height: '60px' }} alt="" />
-                    <Flex style={{ flexDirection: 'column' }}>
-                        <Text style={{ fontSize: '25px', fontWeight: '600' }}>Warranty Protection</Text>
-                        <Text style={{ fontSize: '20px', fontWeight: '500', color: customColors.lightGrayColor }}>
-                            Over 2 years
-                        </Text>
-                    </Flex>
-                </Row>
-                <Row style={{ gap: '10px', alignItems: 'center' }}>
-                    <img src={assets.freeShipping} style={{ width: '60px', height: '60px' }} alt="" />
-                    <Flex style={{ flexDirection: 'column' }}>
-                        <Text style={{ fontSize: '25px', fontWeight: '600' }}>Free Shipping</Text>
-                        <Text style={{ fontSize: '20px', fontWeight: '500', color: customColors.lightGrayColor }}>
-                            Order over $150
-                        </Text>
-                    </Flex>
-                </Row>
-                <Row style={{ gap: '10px', alignItems: 'center' }}>
-                    <img src={assets.support} style={{ width: '60px', height: '60px' }} alt="" />
-                    <Flex style={{ flexDirection: 'column' }}>
-                        <Text style={{ fontSize: '25px', fontWeight: '600' }}>24/7 Support</Text>
-                        <Text style={{ fontSize: '20px', fontWeight: '500', color: customColors.lightGrayColor }}>
-                            Dedicated support
-                        </Text>
-                    </Flex>
-                </Row>
-            </Flex>
-            {/* <Flex style={{ justifyContent: 'space-around', padding: '48px 0' }}> */}
-
             <Row gutter={16} style={{ width: '100%', padding: '48px 0' }}>
                 <Col span={6}>
-                    <Flex style={{ flexDirection: 'column', alignItems: 'center' }}>
-                        <Image src={assets.logoImage} alt="" preview={false} style={{ width: '80px' }} />
-                        <Text style={{ fontSize: '24px', fontWeight: '700' }}>FurniScape</Text>
+                    <Flex style={{ flexDirection: 'column', padding: '8px 0 0 30px' }}>
+                        <Image src={assets.logo} alt="" preview={false} style={{ width: '80px' }} />
                         <Text
                             style={{
                                 fontSize: '16px',
@@ -76,6 +28,10 @@ export const Footer = (props: Props) => {
                             }}
                         >
                             Quarter 6, Thu Duc City, Ho Chi Minh City, Vietnam
+                            <br />
+                            (+84)0945128653
+                            <br />
+                            BnicSportWear@gmail.com
                         </Text>
                     </Flex>
                 </Col>
@@ -85,7 +41,6 @@ export const Footer = (props: Props) => {
                             style={{
                                 fontSize: '18px',
                                 fontWeight: '500',
-                                color: customColors.colorQuaternaryText,
                                 marginBottom: '10px',
                             }}
                         >
@@ -111,7 +66,6 @@ export const Footer = (props: Props) => {
                             style={{
                                 fontSize: '18px',
                                 fontWeight: '500',
-                                color: customColors.colorQuaternaryText,
                                 marginBottom: '10px',
                             }}
                         >
@@ -137,7 +91,6 @@ export const Footer = (props: Props) => {
                             style={{
                                 fontSize: '18px',
                                 fontWeight: '500',
-                                color: customColors.colorQuaternaryText,
                             }}
                         >
                             Newsletter
@@ -152,7 +105,6 @@ export const Footer = (props: Props) => {
                     </Flex>
                 </Col>
             </Row>
-            {/* </Flex> */}
         </Flex>
     );
 };

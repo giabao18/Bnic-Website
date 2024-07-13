@@ -1,5 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Flex, Row, Typography, Input, Select, theme, Pagination, PaginationProps } from 'antd';
+import {
+    Flex,
+    Row,
+    Typography,
+    Input,
+    Select,
+    theme,
+    Pagination,
+    PaginationProps,
+    Col,
+    Menu,
+    MenuProps,
+    Slider,
+    InputNumberProps,
+    InputNumber,
+} from 'antd';
 import { Banner } from '../../../components/userComponents/banner';
 import { Products } from '../../../components/userComponents/products';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,15 +24,25 @@ import { navBarHeight } from 'src/theme';
 import { IRootState } from 'src/redux/store';
 import { useSelector } from 'react-redux';
 import { IProduct } from 'src/redux/products/productsSlice';
+import { CustomMenuShopPage } from 'src/theme/customMenu';
+import SubMenu from 'antd/es/menu/SubMenu';
+import MenuItem from 'antd/es/menu/MenuItem';
 
 const { Text } = Typography;
-
+type MenuItem = Required<MenuProps>['items'][number];
 export const ShopPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(8);
     const [searchValue, setSearchValue] = useState('');
     const productFetch = useSelector((state: IRootState) => state.products.items);
     const [products, setProducts] = useState(productFetch);
+
+    const [inputValue, setInputValue] = useState(1);
+
+    const onChange: InputNumberProps['onChange'] = (newValue) => {
+        setInputValue(newValue as number);
+    };
+
     const handlePageChange: PaginationProps['onChange'] = (page: number) => {
         setCurrentPage(page);
         window.scrollTo({ top: 550, behavior: 'smooth' });
@@ -68,12 +93,10 @@ export const ShopPage = () => {
     useEffect(() => setProducts(productFetch), [productFetch]);
 
     return (
-        <Flex style={{ flexDirection: 'column', alignItems: 'center', width: '100vw', paddingTop: `${navBarHeight}` }}>
-            <Banner title="Shop" />
-            <Row
+        <Flex style={{ flexDirection: 'column', alignItems: 'center', paddingTop: `${navBarHeight}` }}>
+            {/* <Row
                 style={{
                     width: '100%',
-                    backgroundColor: '#F9F1E7',
                     padding: '20px 100px',
                     justifyContent: 'space-between',
                     marginBottom: '50px',
@@ -88,6 +111,7 @@ export const ShopPage = () => {
                     </svg>
                     <Text style={{ fontSize: '18px', fontWeight: '400' }}>Products List</Text>
                 </Row>
+
                 <Row style={{ gap: '40px' }}>
                     <Flex style={{ alignItems: 'center', gap: '10px' }}>
                         <Text style={{ fontSize: '18px', fontWeight: '500' }}>Category</Text>
@@ -144,17 +168,101 @@ export const ShopPage = () => {
                         />
                     </Flex>
                 </Row>
+            </Row> */}
+            <Row gutter={16} style={{ width: '100%', marginTop: '24px' }}>
+                <Col span={6}>
+                    <CustomMenuShopPage
+                        // onClick={onClick}
+                        // style={{ width: 256 }}
+                        defaultSelectedKeys={['1']}
+                        defaultOpenKeys={['sub1']}
+                        mode="inline"
+                        // items={items}
+                        style={{ backgroundColor: 'transparent', width: '80%' }}
+                    >
+                        <SubMenu key="gender" title="Gender">
+                            <MenuItem key="man">Man</MenuItem>
+                            <MenuItem key="woman">Woman</MenuItem>
+                            <MenuItem key="kid">Kid</MenuItem>
+                        </SubMenu>
+
+                        <SubMenu key="categories" title="Categories">
+                            <MenuItem key="shirt">Shirt</MenuItem>
+                            <MenuItem key="tshirt">T-shirt</MenuItem>
+                            <MenuItem key="shorts">Shorts</MenuItem>
+                            <MenuItem key="pants">Pants</MenuItem>
+                            <MenuItem key="bag">Bag | Backpack</MenuItem>
+                            <MenuItem key="shoes">Shoes</MenuItem>
+                        </SubMenu>
+
+                        <SubMenu key="brand" title="Brand">
+                            <MenuItem key="nike">Nike</MenuItem>
+                            <MenuItem key="adidas">Adidas</MenuItem>
+                            <MenuItem key="fila">Fila</MenuItem>
+                            <MenuItem key="head">Head</MenuItem>
+                            <MenuItem key="lining">Lining</MenuItem>
+                            <MenuItem key="reebok">Reebok</MenuItem>
+                            <MenuItem key="yonex">Yonex</MenuItem>
+                        </SubMenu>
+
+                        <SubMenu key="rating" title="Rating">
+                            <Slider
+                                min={0}
+                                max={5}
+                                step={1}
+                                dots
+                                style={{
+                                    width: '80%',
+                                    marginLeft: '38px',
+                                }}
+                            />
+                        </SubMenu>
+
+                        <SubMenu key="budgetRange" title="Budget">
+                            <Row style={{ marginLeft: '32px' }}>
+                                <Col span={14}>
+                                    <Slider
+                                        min={10}
+                                        max={500}
+                                        onChange={onChange}
+                                        value={typeof inputValue === 'number' ? inputValue : 0}
+                                    />
+                                </Col>
+                                <Col span={2}>
+                                    <InputNumber
+                                        min={10}
+                                        max={100}
+                                        style={{ margin: '0 16px' }}
+                                        value={inputValue}
+                                        onChange={onChange}
+                                    />
+                                </Col>
+                            </Row>
+                        </SubMenu>
+
+                        <SubMenu key="sortPrice" title="Sort Price">
+                            <MenuItem key="increase">Increase</MenuItem>
+                            <MenuItem key="decrease">Decrease</MenuItem>
+                        </SubMenu>
+                    </CustomMenuShopPage>
+                </Col>
+                <Col span={18}>
+                    <Flex vertical justify="center" align="center">
+                        <div className="product_list_grid">
+                            <Products productsDetailList={paginatedProducts} />
+                        </div>
+                        <Pagination
+                            style={{ marginTop: '40px' }}
+                            showSizeChanger={false}
+                            onChange={handlePageChange}
+                            defaultCurrent={1}
+                            current={currentPage}
+                            total={totalProducts}
+                            pageSize={pageSize}
+                        />
+                    </Flex>
+                </Col>
             </Row>
-            <Products productsDetailList={paginatedProducts} />
-            <Pagination
-                style={{ marginTop: '40px' }}
-                showSizeChanger={false}
-                onChange={handlePageChange}
-                defaultCurrent={1}
-                current={currentPage}
-                total={totalProducts}
-                pageSize={pageSize}
-            />
         </Flex>
     );
 };

@@ -7,7 +7,7 @@ import { AboutPage } from 'src/pages/user/About';
 import { CartPage } from 'src/pages/user/Cart/Cart';
 import { CheckoutPage } from 'src/pages/user/Checkout/Checkout';
 import { ContactPage } from 'src/pages/user/Contact';
-import { HomePage } from 'src/pages/user/Home';
+import { HomePage } from 'src/pages/user/home/Home';
 import { ProductDetailsPage } from 'src/pages/user/ProductDetail/ProductDetail';
 import { ProfilePage } from 'src/pages/user/Profile';
 import { ShopPage } from 'src/pages/user/Shop/Shop';

@@ -20,13 +20,17 @@ export const theme: ThemeConfig = {
     token: {
         colorPrimary: '#93BA4C',
         colorPrimaryText: '#000000',
-        colorPrimaryTextHover: '#9F9F9F',
+        // colorPrimaryTextHover: '#9F9F9F',
+        colorText: '#ffffff',
     },
     components: {
         Menu: {
             // colorBgBase: 'rgba(8, 8, 8, 0.78)',
             itemColor: '#ffffff',
             groupTitleFontSize: 18,
+            itemHoverColor: '#93BA4C',
+            itemActiveBg: 'transparent',
+            itemSelectedBg: 'transparent',
         },
         Pagination: {
             itemSize: 38,
@@ -37,6 +41,5 @@ export const theme: ThemeConfig = {
         },
     },
 };
-
 
 export const menuConfig: MenuConfig = {};

@@ -16,12 +16,18 @@ export const CustomButtonFooter = styled(Button)({
     borderRadius: 0,
     borderBottom: '1px solid',
     fontWeight: 700,
+    '&:active': {
+        backgroundColor: 'transparent',
+    },
+    '&:hover': {
+        backgroundColor: 'transparent',
+    },
 });
 
 export const CustomNavbarButton = styled(Button)({
     border: '0',
     background: 'transparent',
-   ' &:hover': {
+    ' &:hover': {
         background: 'transparent',
-    }
+    },
 });

@@ -3,7 +3,14 @@ import React, { Component, useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router';
 import { assets } from '../../../assets';
 import { icons } from 'antd/es/image/PreviewGroup';
-import { LogoutOutlined, LoginOutlined, UserOutlined, SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import {
+    ShoppingOutlined,
+    LogoutOutlined,
+    LoginOutlined,
+    UserOutlined,
+    SearchOutlined,
+    ShoppingCartOutlined,
+} from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart } from '../shopping-cart';
 import './style.scss';
@@ -93,15 +100,15 @@ export const Navbar = () => {
             >
                 <Col className="navbar_logo" span={6}>
                     <Link to="/">
-                        <img src={assets.logo} alt="logo" width={90} height={50} style={{ padding: '0 0 4px 20px' }} />
+                        <img src={assets.logo} alt="logo" width={90} style={{ padding: '12px 0 16px 22px' }} />
                     </Link>
                 </Col>
 
                 <Col className="navbar_navigation" span={12} style={{ display: 'flex', justifyContent: 'center' }}>
                     <Menu
                         style={{
-                            fontSize: '16px',
-                            fontWeight: '600',
+                            fontSize: '18px',
+                            fontWeight: '400',
                             background: 'none',
                             color: '#ffffff',
                         }}
@@ -109,19 +116,19 @@ export const Navbar = () => {
                         selectedKeys={[selectedPath]}
                     >
                         <MenuItem key="home" style={{ margin: '0 30px', padding: '0 30px', fontSize: '18px' }}>
-                            <Link to="/">New & Featured</Link>
+                            <Link to="/">Home</Link>
                         </MenuItem>
                         <MenuItem key="shop" style={{ margin: '0 30px', padding: '0 30px', fontSize: '18px' }}>
-                            <Link to="/shop">Men</Link>
+                            <Link to="/shop">Shop</Link>
+                        </MenuItem>
+                        <MenuItem key="contact" style={{ margin: '0 30px', padding: '0 30px', fontSize: '18px' }}>
+                            <Link to="/contact">Blog</Link>
+                        </MenuItem>
+                        <MenuItem key="news" style={{ margin: '0 30px', padding: '0 30px', fontSize: '18px' }}>
+                            <Link to="/news">News</Link>
                         </MenuItem>
                         <MenuItem key="about" style={{ margin: '0 30px', padding: '0 30px', fontSize: '18px' }}>
-                            <Link to="/about">Women</Link>
-                        </MenuItem>
-                        <MenuItem key="contact" style={{ margin: '0 30px', padding: '0 30px', fontSize: '18px' }}>
-                            <Link to="/contact">Kid</Link>
-                        </MenuItem>
-                        <MenuItem key="contact" style={{ margin: '0 30px', padding: '0 30px', fontSize: '18px' }}>
-                            <Link to="/contact">Sale</Link>
+                            <Link to="/about">About us</Link>
                         </MenuItem>
                     </Menu>
                 </Col>
@@ -152,6 +159,22 @@ export const Navbar = () => {
                                             // onClick={() => handleOnClickButton(ButtonMenu[1].path)}
                                         />
                                     </Badge> */}
+
+                            <Badge>
+                                <Button
+                                    icon={<ShoppingOutlined style={{ fontSize: '18px' }} />}
+                                    style={{ background: 'transparent', border: 0, boxShadow: 'none' }}
+                                    size="large"
+                                />
+                            </Badge>
+
+                            <Badge>
+                                <Button
+                                    icon={<SearchOutlined style={{ fontSize: '18px' }} />}
+                                    style={{ background: 'transparent', border: 0, boxShadow: 'none' }}
+                                    size="large"
+                                />
+                            </Badge>
 
                             <Badge count={cartProductCount} offset={[-8, 10]} size="small">
                                 <Popover
