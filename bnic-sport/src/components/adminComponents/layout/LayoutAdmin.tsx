@@ -343,7 +343,7 @@ export const LayoutAdmin = () => {
     };
 
     return (
-        <Layout style={{ minHeight: '100vh' }}>
+        <Layout style={{ minHeight: '100vh', background: '#000000' }}>
             <Header
                 style={{
                     display: 'flex',
@@ -383,7 +383,7 @@ export const LayoutAdmin = () => {
                 <Sider
                     width={200}
                     style={{ borderRight: '1px solid' }}
-                    theme="dark"
+                    // theme="dark"
                     collapsible
                     collapsed={collapsed}
                     onCollapse={(value) => setCollapsed(value)}
@@ -410,8 +410,8 @@ export const LayoutAdmin = () => {
                             padding: 24,
                             margin: 0,
                             minHeight: 280,
-                            background: colorBgContainer,
                             borderRadius: borderRadiusLG,
+                            backgroundColor: '#000000',
                         }}
                     >
                         <Outlet />

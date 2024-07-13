@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Input, Button, Checkbox, Row, Col, Alert } from 'antd';
+import { Form, Input, Button, Checkbox, Row, Col, Alert, Image } from 'antd';
 import { UserOutlined, LockOutlined, LoadingOutlined, GoogleOutlined, FacebookFilled } from '@ant-design/icons';
 import { Spin } from 'antd';
 import { assets } from '../../assets';
@@ -52,7 +52,12 @@ export const SignInPage = () => {
         <Row gutter={16} style={{ height: '100vh' }}>
             <Col style={{ display: 'flex' }} span="14">
                 <div className="backgroundSignIn">
-                    <img src={assets.signInSignUpBG} alt="" />
+                    <Image
+                        preview={false}
+                        src={assets.signInSignUpBG}
+                        // style={{ width: '1000px',  overflow: 'hidden' }}
+                        alt=""
+                    />
                 </div>
             </Col>
 

@@ -1,12 +1,12 @@
 export const assets: any = {
     logo: require('./logo/logo3.png'),
-    loginLogo: require('./logo/loginLogo.png'),
+    loginLogo: require('./logo/logo3.png'),
     faviconLogo: require('./logo/faviconLogo3.png'),
     facebookLogo: require('./logo/facebookLogo.png'),
     googleLogo: require('./logo/googleLogo.png'),
     decorImg: require('./logo/decorLogin.jpg'),
     chairImg: require('./logo/chair.png'),
-    signInSignUpBG: require('./images/signInSignUpBG.jpg'),
+    signInSignUpBG: require('./images/signIn&signUp/signIn.jpg'),
     logoImage: require('./logo/logoImage.png'),
     background: require('./images/background.png'),
     // homepage

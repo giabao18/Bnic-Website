@@ -75,7 +75,7 @@ export const ProductPageAdmin = () => {
         dispatch(fetchProducts());
     }, []);
     return (
-        <div>
+        <div style={{ background: '#000000' }}>
             <Button style={{ marginBottom: '20px', float: 'right' }} onClick={handleOpenAddProduct}>
                 Add New Product
             </Button>

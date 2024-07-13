@@ -41,7 +41,7 @@ export const Products: React.FC<IProductList> = ({ productsDetailList }) => {
                         hoverable
                         style={{ width: 300, backgroundColor: '#131212b8', border: 'none' }}
                         cover={
-                            <Image alt="img" width={300} height={300} preview={false} src={productDetail.image_dir} />
+                            <Image alt="img" width={300} preview={false} src={productDetail.image_dir} />
                         }
                         // actions={[
                         //     <Tooltip placement="bottom" title="Share">
