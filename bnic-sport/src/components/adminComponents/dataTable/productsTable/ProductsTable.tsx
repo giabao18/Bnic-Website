@@ -391,7 +391,7 @@ export const ProductsTable = ({ productsList }: IProductsTablePropsType) => {
                 columns={columns}
                 dataSource={data}
                 loading={loading}
-                bordered
+                bordered={true}
                 expandable={{
                     expandedRowRender: (record) => <p style={{ margin: '0 0 0 48px' }}>{record.description}</p>,
                 }}

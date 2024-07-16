@@ -6,9 +6,9 @@ export const customColors = {
     colorGreenBadgeColor: '#2EC1AC',
     colorOverlay: '#3A3A3A',
     lightGrayColor: 'rgb(220 220 220)',
-    colorSecondaryText: '#E97171',
+    colorSecondaryText: '#93BA4C',
     colorTertiaryText: '#3A3A3A',
-
+    colorPrimary: '#93BA4C',
     colorQuaternaryText: '#898989',
     colorBgSecondary: '#F9F1E7',
     colorYellow: '#FFC700',
@@ -16,11 +16,17 @@ export const customColors = {
 
 export const navBarHeight: string = '67px';
 
+export const textSize = {
+    title: '28px',
+    content: '18px',
+};
+
 export const theme: ThemeConfig = {
     token: {
         colorPrimary: '#93BA4C',
         colorPrimaryText: '#000000',
         // colorPrimaryTextHover: '#9F9F9F',
+        colorBgBase: '#000000',
         colorText: '#ffffff',
     },
     components: {

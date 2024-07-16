@@ -54,7 +54,7 @@ export const SignInPage = () => {
                 <div className="backgroundSignIn">
                     <Image
                         preview={false}
-                        src={assets.signInSignUpBG}
+                        src={assets.signInBG}
                         // style={{ width: '1000px',  overflow: 'hidden' }}
                         alt=""
                     />

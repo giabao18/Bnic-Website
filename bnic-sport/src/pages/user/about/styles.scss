@@ -1,0 +1,19 @@
+.blur_background {
+    /* From https://css.glass */
+    background: rgb(44 42 42 / 62%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(9px);
+    padding: 40px;
+}
+
+.about_page_content_container {
+    width: 90%;
+    margin-top: 80px;
+    // padding: 26px;
+}
+
+.about_page_content_ourValue {
+    background-color: #ffffff;
+
+}

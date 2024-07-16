@@ -11,7 +11,6 @@ const { TextArea } = Input;
 export const ContactPage = () => {
     return (
         <Flex style={{ flexDirection: 'column', alignItems: 'center', paddingTop: `${navBarHeight}` }}>
-            <Banner title="Contact" />
             <Flex style={{ flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
                 <Text style={{ fontSize: '36px', fontWeight: '600' }}>Get In Touch With Us</Text>
                 <Text

@@ -38,14 +38,12 @@ export const HomePage = () => {
 
     //temp data
     const highlightProducts = productsInStock.slice(0, 8);
-    const onChange = (currentSlide: number) => {
-        console.log(currentSlide);
-    };
+
     return (
         <Flex style={{ flexDirection: 'column', width: '100%', alignItems: 'center' }}>
             <Flex style={{ position: 'relative' }}>
                 <div style={{ width: '100vw', margin: '0 auto', height: '800px', overflow: 'hidden' }}>
-                    <Carousel dotPosition="top" autoplay={true} infinite={true} autoplaySpeed={2000}>
+                    <Carousel dotPosition="top" autoplay={true} infinite={true} autoplaySpeed={1000}>
                         {bannerCarousel.map((banner) => (
                             <div>
                                 <Image
@@ -91,7 +89,6 @@ export const HomePage = () => {
                         <Button
                             block
                             style={{
-                                color: '#333333',
                                 fontWeight: '700',
                                 fontSize: '16px',
                                 display: 'flex',

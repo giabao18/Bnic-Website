@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Input, Button, Checkbox, Row, Col, DatePicker, Select } from 'antd';
+import { Form, Input, Button, Row, Col, Select, Image } from 'antd';
 import Icon, {
     EyeTwoTone,
     CalendarOutlined,
@@ -54,7 +54,7 @@ export const SignUpPage = () => {
         <Row gutter={16} style={{ height: '100vh' }}>
             <Col span="14">
                 <div className="backgroundSignUp">
-                    <img src={assets.signInSignUpBG} alt="img" />
+                    <Image preview={false} src={assets.signUpBG} alt="img" />
                 </div>
             </Col>
 
