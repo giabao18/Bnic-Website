@@ -11,11 +11,12 @@ export const CustomTypographyFooter = styled(Typography)({
 export const CustomTypographyContent = styled(Typography)({
     fontSize: '18px',
     textAlign: 'justify',
-    textJustify: 'inter-word'
+    textJustify: 'inter-word',
 });
 
 export const CustomTypographyContentTitle = styled(Typography)({
     fontWeight: '500',
     fontSize: '26px',
-    color: `${customColors.colorSecondaryText}`
+    textTransform: 'uppercase',
+    color: `${customColors.colorSecondaryText}`,
 });

@@ -4,7 +4,6 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(9px);
-    padding: 40px;
 }
 
 .about_page_content_container {
@@ -15,5 +14,27 @@
 
 .about_page_content_ourValue {
     background-color: #ffffff;
+}
 
+.about_page_content_card {
+    width: 32%;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0;
+    padding: 16px;
+}
+
+.about_page_content_card_icon {
+    margin-top: 10px;
+    font-size: 24px;
+    padding: 10px;
+    background: var(--primary-color);
+}
+
+.about_page_content_card_title {
+    margin-top: 26px;
+}
+
+.about_page_content_card_content {
+    margin-top: 26px;
 }

@@ -28,6 +28,7 @@ export const theme: ThemeConfig = {
         // colorPrimaryTextHover: '#9F9F9F',
         colorBgBase: '#000000',
         colorText: '#ffffff',
+        colorTextPlaceholder: '#ffffff63',
     },
     components: {
         Menu: {
@@ -45,6 +46,8 @@ export const theme: ThemeConfig = {
         Layout: {
             colorBgTrigger: '#BC933A',
         },
+        Form: {
+        }
     },
 };
 

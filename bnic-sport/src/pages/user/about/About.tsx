@@ -1,6 +1,5 @@
 import React from 'react';
-import { Flex, Row, Image, Typography, theme, Col, Avatar, Tooltip } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Flex, Row, Image, Typography, theme, Col, Avatar, Tooltip, Card } from 'antd';
 import { Banner } from '../../../components/userComponents/banner';
 import { assets } from '../../../assets';
 import { customColors, navBarHeight } from 'src/theme';
@@ -11,10 +10,15 @@ import {
     CustomTypographyFooter,
 } from 'src/theme/customTypography';
 import { CustomAvatarAboutPage } from 'src/theme/customAvatar';
+import { DeploymentUnitOutlined, UserOutlined, EyeOutlined } from '@ant-design/icons';
 
-type Props = {};
+interface card {
+    icon: any;
+    title: string;
+    content: string;
+}
 
-export const AboutPage = (props: Props) => {
+export const AboutPage = () => {
     const { token } = theme.useToken();
 
     const members = [
@@ -37,6 +41,27 @@ export const AboutPage = (props: Props) => {
             middleName: 'Minh',
             firstName: 'Huy',
             image: assets.MinhHuy,
+        },
+    ];
+
+    const cards: card[] = [
+        {
+            icon: DeploymentUnitOutlined,
+            title: 'disversity',
+            content:
+                '  Our engineers are constantly exploring new materials and technologies to enhance your athletic experience. Together, we are committed to delivering sportswear that supports your journey and helps you reach new heights.',
+        },
+        {
+            icon: UserOutlined,
+            title: 'commnunity',
+            content:
+                '  Our engineers are constantly exploring new materials and technologies to enhance your athletic experience. Together, we are committed to delivering sportswear that supports your journey and helps you reach new heights.',
+        },
+        {
+            icon: EyeOutlined,
+            title: 'authentication',
+            content:
+                '  Our engineers are constantly exploring new materials and technologies to enhance your athletic experience. Together, we are committed to delivering sportswear that supports your journey and helps you reach new heights.',
         },
     ];
 
@@ -99,7 +124,7 @@ export const AboutPage = (props: Props) => {
 
             <Flex justify="center" align="center" style={{ flexDirection: 'column', width: '100%' }}>
                 <div className="blur_background about_page_content_container ">
-                    <Row gutter={46} style={{ padding: '20px' }}>
+                    <Row gutter={46} style={{ padding: '40px' }}>
                         <Col span={8}>
                             <CustomTypographyContentTitle>Our Story</CustomTypographyContentTitle>
                             <CustomTypographyContent>
@@ -144,13 +169,13 @@ export const AboutPage = (props: Props) => {
 
                 <Flex className="about_page_content_container" vertical>
                     <Flex
-                        style={{padding: '26px',width:'100%', backgroundColor: `${customColors.colorPrimary}` }}
+                        style={{ padding: '26px', backgroundColor: `${customColors.colorPrimary}` }}
                         justify="center"
                         align="center"
                         vertical
                     >
                         <CustomTypographyContentTitle style={{ color: '#000000' }}>
-                            Our Value
+                            Our Values
                         </CustomTypographyContentTitle>
                         <CustomTypographyContent
                             style={{
@@ -166,18 +191,47 @@ export const AboutPage = (props: Props) => {
                             a shared passion for athletics and innovation.
                         </CustomTypographyContent>
                     </Flex>
-                    <Flex style={{width: '100%'}}>
-                        <Row gutter={26}>
-                            <Col className="about_page_content_ourValue" span={8}>
-                                123
-                            </Col>
-                            <Col className="about_page_content_ourValue" span={8}>
-                                123
-                            </Col>
-                            <Col className="about_page_content_ourValue" span={8}>
-                                123
-                            </Col>
-                        </Row>
+
+                    <Flex justify="space-between" style={{ marginTop: '38px' }}>
+                        {cards.map((card) => (
+                            <Card className="about_page_content_card">
+                                {/* <div className="about_page_content_card_icon_container"> */}
+                                <card.icon
+                                    style={{
+                                        marginTop: '10px',
+                                        fontSize: '28px',
+                                        padding: '10px',
+                                        background: `${customColors.colorPrimary}`,
+                                    }}
+                                />
+                                <CustomTypographyContentTitle
+                                    className="about_page_content_card_title"
+                                    style={{ color: '#000000' }}
+                                >
+                                    {card.title}
+                                </CustomTypographyContentTitle>
+                                <CustomTypographyContent
+                                    style={{ color: '#000000' }}
+                                    className="about_page_content_card_content"
+                                >
+                                    {card.content}
+                                </CustomTypographyContent>
+                            </Card>
+                        ))}
+
+                        {/* <div style={{ width: '100%', overflow: 'hidden' }}>
+                            <Row gutter={36}>
+                                <Col className="about_page_content_ourValue" span={7}>
+                                    123
+                                </Col>
+                                <Col className="about_page_content_ourValue" span={7}>
+                                    123
+                                </Col>
+                                <Col className="about_page_content_ourValue" span={7}>
+                                    123
+                                </Col>
+                            </Row>
+                        </div> */}
                     </Flex>
                 </Flex>
 

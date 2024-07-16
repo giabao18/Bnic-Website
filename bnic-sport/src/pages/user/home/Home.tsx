@@ -43,7 +43,7 @@ export const HomePage = () => {
         <Flex style={{ flexDirection: 'column', width: '100%', alignItems: 'center' }}>
             <Flex style={{ position: 'relative' }}>
                 <div style={{ width: '100vw', margin: '0 auto', height: '800px', overflow: 'hidden' }}>
-                    <Carousel dotPosition="top" autoplay={true} infinite={true} autoplaySpeed={1000}>
+                    <Carousel dotPosition="top" autoplay={true} infinite={true} autoplaySpeed={2000}>
                         {bannerCarousel.map((banner) => (
                             <div>
                                 <Image
@@ -97,6 +97,7 @@ export const HomePage = () => {
                                 padding: '20px 26px',
                                 marginTop: '20px',
                                 width: '20%',
+                                border: `2px solid ${token.colorPrimary}`,
                             }}
                         >
                             Discover
@@ -194,7 +195,7 @@ export const HomePage = () => {
                     Find the best lifestyle influence on Instagram to follow
                 </Text>
             </Flex>
-            <Flex style={{ width: '100%', marginTop: '38px' }}>
+            <Flex justify="space-between" style={{ width: '100%', marginTop: '38px', padding: '0 20px' }}>
                 {footerImages.map((img) => (
                     <Image preview={false} src={img} width={500} />
                 ))}

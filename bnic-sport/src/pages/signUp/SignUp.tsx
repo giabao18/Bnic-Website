@@ -155,7 +155,7 @@ export const SignUpPage = () => {
                             />
                         </Form.Item>
                         <Form.Item>
-                            <Button type="primary" size="large" htmlType="submit" style={{ width: '100%' }}>
+                            <Button type="primary" size="large" htmlType="submit" style={{ width: '100%', boxShadow: 'none' }}>
                                 Sign Up
                             </Button>
                             Or <Link to="/signIn">Sign in now</Link>
@@ -164,21 +164,6 @@ export const SignUpPage = () => {
                         <div style={{ textAlign: 'center' }}>
                             <p>Or Sign up with:</p>
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                {/* <ButtonWithIcon
-                                    type="primary"
-                                    icon={<img src={assets.facebookLogo} />}
-                                    className="signUpWithButton"
-                                >
-                                    Facebook
-                                </ButtonWithIcon>
-                                <ButtonWithIcon
-                                    type="primary"
-                                    icon={<img src={assets.googleLogo} />}
-                                    style={{ width: '40%' }}
-                                >
-                                    Google
-                                </ButtonWithIcon> */}
-
                                 <FacebookFilled style={{ fontSize: '200%', margin: '0 10px 0 10px' }} />
 
                                 <GoogleOutlined style={{ fontSize: '200%', margin: '0 10px 0 10px' }} />

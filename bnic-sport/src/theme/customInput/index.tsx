@@ -18,3 +18,9 @@ export const CustomInputFooter = styled(Input)({
 export const CustomInputWithoutBG = styled(Input)({
     backgroundColor: 'transparent',
 });
+
+export const CustomInputSignInAndSignUp = styled(Input)({
+    '::placeholder': {
+        color: 'red',
+    },
+});

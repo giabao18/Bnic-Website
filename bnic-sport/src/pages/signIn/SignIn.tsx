@@ -11,6 +11,7 @@ import { userSignIn } from 'src/redux/api/authApi';
 import './signIn.scss';
 import { IUserData } from 'src/redux/api/authSlice';
 import { setSelectedPath } from 'src/redux/navbar';
+import { CustomInputSignInAndSignUp } from 'src/theme/customInput';
 
 export interface IUserSignInData {
     email: string;
@@ -74,7 +75,7 @@ export const SignInPage = () => {
                         </Link>
 
                         <Form.Item name="email" rules={[{ required: true, message: 'Please input your username!' }]}>
-                            <Input
+                            <CustomInputSignInAndSignUp
                                 prefix={<UserOutlined className="site-form-item-icon" style={{ marginRight: '6px' }} />}
                                 placeholder="Email"
                                 size="large"
@@ -102,7 +103,12 @@ export const SignInPage = () => {
                         </Form.Item>
 
                         <Form.Item>
-                            <Button type="primary" size="large" htmlType="submit" style={{ width: '100%' }}>
+                            <Button
+                                type="primary"
+                                size="large"
+                                htmlType="submit"
+                                style={{ width: '100%', boxShadow: 'none' }}
+                            >
                                 {loading ? (
                                     <Spin indicator={<LoadingOutlined style={{ fontSize: '14px' }} spin />} />
                                 ) : (
