@@ -1,5 +1,16 @@
 import styled from '@emotion/styled';
 import { Button } from 'antd';
+import { customColors } from '..';
+
+export const CustomButton = styled(Button)({
+    border: `2px solid #ffffff}`,
+    boxShadow: 'none',
+});
+
+export const CustomButton2 = styled(Button)({
+    border: `1px solid #ffffff}`,
+    boxShadow: 'none',
+});
 
 export const ButtonWithIcon = styled(Button)({
     width: '40%',

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IAppDispatch, IRootState } from 'src/redux/store';
 import MenuItem from 'antd/es/menu/MenuItem';
 import './styles.scss';
+import { CustomButton } from 'src/theme/customButton';
 
 const { Text } = Typography;
 
@@ -52,7 +53,7 @@ export const HomePage = () => {
                                         width: '100%',
                                         overflow: 'hidden',
                                     }}
-                                    preview={{ mask: null }}
+                                    preview={false}
                                     src={banner}
                                     alt="Banner"
                                 />
@@ -66,7 +67,7 @@ export const HomePage = () => {
                         flexDirection: 'column',
                         width: '700px',
                         left: '40px',
-                        top: '58%',
+                        top: '50%',
                         color: '#ffffff',
                         padding: '0 50px',
                     }}
@@ -77,6 +78,7 @@ export const HomePage = () => {
                             fontWeight: '500',
                             lineHeight: '65px',
                             marginTop: '10px',
+                            textTransform: 'uppercase',
                         }}
                     >
                         Explore the Next Generation of Racket Technologies
@@ -86,8 +88,8 @@ export const HomePage = () => {
                         and precision. Discover innovations that will elevate your tennis experience to new level
                     </Text>
                     <Link to="/shop">
-                        <Button
-                            block
+                        <CustomButton
+                            // block
                             style={{
                                 fontWeight: '700',
                                 fontSize: '16px',
@@ -97,11 +99,10 @@ export const HomePage = () => {
                                 padding: '20px 26px',
                                 marginTop: '20px',
                                 width: '20%',
-                                border: `2px solid ${token.colorPrimary}`,
                             }}
                         >
                             Discover
-                        </Button>
+                        </CustomButton>
                     </Link>
                 </Flex>
             </Flex>
@@ -167,7 +168,7 @@ export const HomePage = () => {
                 </Flex>
 
                 <Link to="/shop">
-                    <Button
+                    <CustomButton
                         style={{
                             fontWeight: '600',
                             backgroundColor: 'transparent',
@@ -176,14 +177,13 @@ export const HomePage = () => {
                             width: '250px',
                             height: '50px',
                             marginTop: '50px',
-                            border: `2px solid ${token.colorPrimary}`,
                         }}
                     >
                         Show more
-                    </Button>
+                    </CustomButton>
                 </Link>
             </Flex>
-            <Flex style={{ flexDirection: 'column', alignItems: 'center', marginTop: '70px' }}>
+            <Flex style={{ flexDirection: 'column', alignItems: 'center', marginTop: '58px' }}>
                 <Text style={{ fontSize: '40px', fontWeight: '700', margin: '0px 0 20px 0' }}>Follow Us</Text>
                 <Text
                     style={{
@@ -195,7 +195,7 @@ export const HomePage = () => {
                     Find the best lifestyle influence on Instagram to follow
                 </Text>
             </Flex>
-            <Flex justify="space-between" style={{ width: '100%', marginTop: '38px', padding: '0 20px' }}>
+            <Flex justify="space-between" style={{ width: '100%', marginTop: '58px', padding: '0 20px' }}>
                 {footerImages.map((img) => (
                     <Image preview={false} src={img} width={500} />
                 ))}

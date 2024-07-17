@@ -42,5 +42,28 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(9px);
 
-   
+    .user_navbar_menu_item {
+        margin: 0 30px;
+        padding: 0 30px;
+        font-size: 18px;
+        // font-weight: 500;
+    }
+}
+
+// antd modal custom
+.ant-modal-wrap {
+    height: 100%;
+
+    [tabindex='-1'] {
+        height: 100%;
+
+        .ant-modal-content {
+            height: 100%;
+            background: rgba(8, 8, 8, 0.78);
+            border-radius: 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(9px);
+        }
+    }
 }

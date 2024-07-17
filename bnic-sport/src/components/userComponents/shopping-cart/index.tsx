@@ -23,16 +23,8 @@ export const ShoppingCart = () => {
     };
 
     return (
-        <Flex
-            style={{
-                flexDirection: 'column',
-                alignItems: 'center',
-                right: '0',
-                backgroundColor: '#fff',
-                padding: '20px 30px 30px 30px',
-            }}
-        >
-            <Text style={{ fontSize: '22px', fontWeight: '600' }}>Shopping Cart</Text>
+        <Flex  vertical align="center">
+            {/* <Text style={{ fontSize: '22px', fontWeight: '600' }}>Shopping Cart</Text> */}
             <Flex
                 style={{
                     flexDirection: 'column',
@@ -155,5 +147,6 @@ export const ShoppingCart = () => {
                 </Link>
             </Row>
         </Flex>
+
     );
 };

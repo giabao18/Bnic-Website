@@ -1,3 +1,11 @@
+.user_navbar_cart_popover {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(8px);
+
+    padding: 20px 30px 30px 30px;
+}
+
 .close-btn:hover {
     opacity: 0.8;
 }
@@ -17,5 +25,7 @@
 }
 
 .item-list::-webkit-scrollbar-thumb:hover {
-    background: #898989;
+    // background: #898989;
 }
+
+// antd custom
