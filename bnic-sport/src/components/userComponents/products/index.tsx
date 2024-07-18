@@ -40,35 +40,16 @@ export const Products: React.FC<IProductList> = ({ productsDetailList }) => {
                     <Card
                         hoverable
                         style={{ width: 300, backgroundColor: '#131212b8', border: 'none' }}
-                        cover={
-                            <Image alt="img" width={300} preview={false} src={productDetail.image_dir} />
-                        }
-                        // actions={[
-                        //     <Tooltip placement="bottom" title="Share">
-                        //         <ShareAltOutlined
-                        //             key="setting"
-                        //             //  style={{ margin: '5px' }}
-                        //         />
-                        //     </Tooltip>,
-                        //     <Tooltip placement="bottom" title="Add">
-                        //         <PlusOutlined
-                        //             key="addProduct"
-                        //             // style={{ margin: '5px' }}
-                        //             onClick={() => handleAddProduct(productDetail)}
-                        //         />
-                        //         ,
-                        //     </Tooltip>,
-                        // ]}
+                        cover={<Image alt="img" width={300} preview={false} src={productDetail.image_dir} />}
+                        onClick={() => navigate(`/products/${productDetail.id}`)}
                     >
-                        <div onClick={() => navigate(`/products/${productDetail.id}`)}>
-                            <Card.Meta
-                                title={productDetail.name}
-                                description={<span className="ellipsis">{productDetail.description}</span>}
-                            />
-                            <Typography.Title level={5} style={{ margin: '8px 0 0 0' }}>
-                                ${productDetail.price}
-                            </Typography.Title>
-                        </div>
+                        <Card.Meta
+                            title={productDetail.name}
+                            description={<span className="ellipsis">{productDetail.description}</span>}
+                        />
+                        <Typography.Title level={5} style={{ margin: '8px 0 0 0' }}>
+                            ${productDetail.price}
+                        </Typography.Title>
                     </Card>
                 </Badge.Ribbon>
             ))}

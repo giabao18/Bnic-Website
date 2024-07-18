@@ -13,6 +13,7 @@ import {
     Popover,
     Modal,
     Drawer,
+    Divider,
 } from 'antd';
 import React, { Component, useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router';
@@ -122,7 +123,7 @@ export const Navbar = () => {
             <Row
                 gutter={16}
                 style={{
-                    padding: '8px 0 0px 0',
+                    padding: '0',
                     position: 'fixed',
                     margin: '0',
                     zIndex: '50',
@@ -134,7 +135,13 @@ export const Navbar = () => {
             >
                 <Col className="navbar_logo" span={6}>
                     <Link to="/">
-                        <img src={assets.logo} alt="logo" width={90} style={{ padding: '12px 0 16px 22px' }} />
+                        <Image
+                            preview={false}
+                            src={assets.logo}
+                            alt="logo"
+                            width={90}
+                            style={{ padding: '15px 0 16px 22px' }}
+                        />
                     </Link>
                 </Col>
 
@@ -142,12 +149,13 @@ export const Navbar = () => {
                     <Menu
                         style={{
                             fontSize: '18px',
-                            fontWeight: '400',
+                            fontWeight: '500',
                             background: 'none',
                             color: '#ffffff',
                         }}
                         mode="horizontal"
                         selectedKeys={[selectedPath]}
+                        
                     >
                         <MenuItem key="home" className="user_navbar_menu_item">
                             <Link to="/">Home</Link>
@@ -172,7 +180,7 @@ export const Navbar = () => {
                     span={6}
                     style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: '10px' }}
                 >
-                    <Flex gap="large" wrap="wrap" style={{ paddingTop: '4px' }}>
+                    <Flex gap="large" wrap="wrap" style={{ paddingTop: '8px' }}>
                         <ConfigProvider theme={{ components: { Button: { textHoverBg: '#ffffff' } } }}>
                             {isAuthenticated && (
                                 <Badge>
@@ -206,72 +214,22 @@ export const Navbar = () => {
                                     icon={<ShoppingOutlined style={{ fontSize: '18px' }} />}
                                     style={{ background: 'transparent', border: 0, boxShadow: 'none' }}
                                     size="large"
+                                    onClick={() => navigate('/cart')}
                                 />
                             </Badge>
 
                             <Badge count={cartProductCount} offset={[-8, 10]} size="small">
-                                {/* <Popover
-                                    placement="bottomRight"
-                                    arrow={{ pointAtCenter: true }}
-                                    content={<ShoppingCart />}
-                                    open={true}
-                                    className='user_navbar_cart_popover'
-                                >
-                                    <Button
-                                        icon={<ShoppingCartOutlined style={{ fontSize: '18px' }} />}
-                                        size="large"
-                                        style={{ background: 'transparent', border: 0, boxShadow: 'none' }}
-                                    />
-                                </Popover> */}
                                 <Button
                                     icon={<ShoppingCartOutlined style={{ fontSize: '18px' }} />}
                                     size="large"
                                     style={{ background: 'transparent', border: 0, boxShadow: 'none' }}
                                     onClick={handleShowCart}
                                 />
-                                {/* <CustomModal
-                                    title="Shopping Cart"
-                                    open={isCartOpen}
-                                    onOk={handleCheckoutShoppingCart}
-                                    onCancel={handleCloseShoppingCart}
-                                    style={{ top: '0', float: 'right', height: '100%', paddingBottom: '0' }}
-                                    
-                                >
-                                    <Flex>
-                                        <div>123</div>
-                                    </Flex>
-                                </CustomModal> */}
-                                <CustomDrawer
-                                    title="Shopping Cart"
-                                    onClose={handleCloseShoppingCart}
-                                    open={isCartOpen}
-                                    style={{
-                                        background: 'rgba(8, 8, 8, 0.78)',
-                                        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-                                        backdropFilter: 'blur(8px)',
-                                        WebkitBackdropFilter: 'blur(9px)',
-                                    }}
-                                    footer={
-                                        // <Flex justify="space-between" align="center" style={{ margin: '20px 10px' }}>
-                                        //     <CustomButton size="large" style={{ fontWeight: '600' }}>
-                                        //         Cart
-                                        //     </CustomButton>
-                                        <CustomButton2
-                                            size="large"
-                                            style={{
-                                                fontWeight: '600',
-                                                margin: '18px 10px',
-                                                float: 'right',
-                                            }}
-                                            htmlType="submit"
-                                        >
-                                            Checkout
-                                        </CustomButton2>
-                                        // </Flex>
-                                    }
-                                >
-                                    <ShoppingCart />
-                                </CustomDrawer>
+
+                                <ShoppingCart
+                                    isCartOpen={isCartOpen}
+                                    handleCloseShoppingCart={handleCloseShoppingCart}
+                                />
                             </Badge>
 
                             {!isAuthenticated && (

@@ -42,6 +42,7 @@ export const theme: ThemeConfig = {
         colorBgBase: '#000000',
         colorText: '#ffffff',
         colorTextPlaceholder: '#ffffff63',
+        colorBgContainer: '#000000',
     },
     components: {
         Menu: {
@@ -59,6 +60,10 @@ export const theme: ThemeConfig = {
             colorBgTrigger: '#BC933A',
         },
         Form: {},
+        Table: {
+            bodySortBg: '#000000',
+            borderColor: '#898989',
+        }
     },
 };
 

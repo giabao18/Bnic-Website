@@ -20,3 +20,9 @@ export const CustomTypographyContentTitle = styled(Typography)({
     textTransform: 'uppercase',
     color: `${customColors.colorSecondaryText}`,
 });
+
+
+export const CustomTypographyCartPrice = styled(Typography)({
+    fontSize: '16px',
+    fontWeight: '500',
+});

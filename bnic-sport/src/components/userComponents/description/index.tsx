@@ -30,7 +30,7 @@ export const Description = () => {
                 both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal
                 preferences while the guitar-influenced leather strap enables easy and stylish travel.
             </Text>
-            <Row style={{ width: '100%', marginTop: '50px', justifyContent: 'space-between' }}>
+            {/* <Row style={{ width: '100%', marginTop: '50px', justifyContent: 'space-between' }}>
                 <Row
                     style={{
                         width: '48%',
@@ -53,7 +53,7 @@ export const Description = () => {
                 >
                     <Image src={assets.asgaardSofa6} preview={{ mask: null }} style={{ width: '600px' }} />
                 </Row>
-            </Row>
+            </Row> */}
         </Flex>
     );
 };

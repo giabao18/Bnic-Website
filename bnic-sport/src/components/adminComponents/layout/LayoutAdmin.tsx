@@ -20,7 +20,7 @@ import {
     AreaChartOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Badge, Breadcrumb, Button, ConfigProvider, Flex, Layout, Menu, theme } from 'antd';
+import { Badge, Breadcrumb, Button, ConfigProvider, Flex, Layout, Menu, theme, Image } from 'antd';
 import { assets } from 'src/assets';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import { signOut } from 'src/redux/api/authSlice';
@@ -147,7 +147,7 @@ export const LayoutAdmin = () => {
                 }}
             >
                 <Link to="/admin">
-                    <img src={assets.logo} alt="logo" width={180} style={{ padding: '26px 0 0 0 ' }} />
+                    <Image preview={false} src={assets.logo} alt="logo" width={90} style={{ padding: '6px' }} />
                 </Link>
                 <Flex gap="large" wrap="wrap" style={{ paddingTop: '4px' }}>
                     <ConfigProvider theme={{ components: { Button: { textHoverBg: '#ffffff' } } }}>

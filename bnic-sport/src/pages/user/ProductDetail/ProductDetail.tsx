@@ -63,7 +63,7 @@ export const ProductDetailsPage = () => {
             style={{
                 flexDirection: 'column',
                 alignItems: 'center',
-                width: '100vw',
+                width: '100%',
                 paddingTop: `${navBarHeight}`,
                 overflow: 'none',
             }}
@@ -154,7 +154,7 @@ export const ProductDetailsPage = () => {
                             <Image preview={false} src={assets.asgaardSofa5} />
                         </Row>
                     </Flex> */}
-                    <Image preview={{ mask: null }} src={productDetail?.image_dir} />
+                    <Image preview={{ mask: null }} src={productDetail?.image_dir} width={500}/>
                 </Row>
                 <Flex style={{ flexDirection: 'column', width: '50%' }}>
                     <Text

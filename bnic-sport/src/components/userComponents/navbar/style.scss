@@ -51,6 +51,10 @@
 }
 
 // antd modal custom
+.ant-menu-horizontal {
+    line-height: 55px;
+}
+
 .ant-modal-wrap {
     height: 100%;
 
@@ -67,3 +71,4 @@
         }
     }
 }
+

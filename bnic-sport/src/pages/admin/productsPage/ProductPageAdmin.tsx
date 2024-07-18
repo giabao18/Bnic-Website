@@ -32,6 +32,7 @@ import {
 import { sortedDate } from 'src/components/sortDate/sortDate';
 import { UploadOutlined, EditOutlined } from '@ant-design/icons';
 import { ProductsTable } from 'src/components/adminComponents/dataTable/productsTable/ProductsTable';
+import { CustomButton2 } from 'src/theme/customButton';
 
 interface IProductsTableType extends IProduct {
     key: number;
@@ -76,9 +77,9 @@ export const ProductPageAdmin = () => {
     }, []);
     return (
         <div style={{ background: '#000000' }}>
-            <Button style={{ marginBottom: '20px', float: 'right' }} onClick={handleOpenAddProduct}>
+            <CustomButton2 style={{ marginBottom: '20px', float: 'right' }} onClick={handleOpenAddProduct}>
                 Add New Product
-            </Button>
+            </CustomButton2>
             <Modal
                 title={
                     <Typography.Title level={4} style={{ display: 'flex', justifyContent: 'center' }}>

@@ -93,7 +93,7 @@ export const ShopPage = () => {
     useEffect(() => setProducts(productFetch), [productFetch]);
 
     return (
-        <Flex style={{ flexDirection: 'column', alignItems: 'center', paddingTop: `${navBarHeight}` }}>
+        <Flex style={{ flexDirection: 'column', alignItems: 'center', margin: `${navBarHeight} 0 40px 0` }}>
             {/* <Row
                 style={{
                     width: '100%',

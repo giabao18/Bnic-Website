@@ -15,7 +15,7 @@ export const Footer = (props: Props) => {
     const { token } = theme.useToken();
 
     return (
-        <Flex style={{ flexDirection: 'column' }}>
+        <Flex style={{ flexDirection: 'column', background: 'rgba(19, 18, 18, 0.72)' }}>
             <Row gutter={16} style={{ width: '100%', padding: '48px 0' }}>
                 <Col span={9}>
                     <Flex style={{ flexDirection: 'column', padding: '8px 0 0 30px' }}>
@@ -72,7 +72,7 @@ export const Footer = (props: Props) => {
                     </Flex>
                 </Col>
                 <Col span={5}>
-                    <Flex vertical justify="center" align="flex-start" >
+                    <Flex vertical justify="center" align="flex-start">
                         <Text className="footer_title">Newsletter</Text>
                         <Flex style={{ gap: '10px' }}>
                             <CustomInputFooter
