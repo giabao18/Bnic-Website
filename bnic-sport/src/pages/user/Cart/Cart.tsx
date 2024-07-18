@@ -23,11 +23,10 @@ const { Text } = Typography;
 
 export const CartPage = () => {
     const { token } = theme.useToken();
-    const [shippingFee, setShippingFee] = useState(50);
+    const [shippingFee, setShippingFee] = useState(0);
     const dispatch = useDispatch();
     const cart = useSelector((state: IRootState) => state.cart);
     const handleIncreaseItems = (id: string) => {
-        console.log(id);
         dispatch(increaseItemQuantity(id));
     };
 
@@ -123,11 +122,6 @@ export const CartPage = () => {
             key: 'name',
         },
         {
-            title: 'Category',
-            dataIndex: 'category',
-            key: 'category',
-        },
-        {
             title: 'Quantity',
             dataIndex: 'quantity',
             key: 'quantity',
@@ -138,7 +132,7 @@ export const CartPage = () => {
             key: 'price',
         },
         {
-            title: '',
+            title: 'Remove',
             dataIndex: 'delete',
             key: 'delete',
         },
@@ -154,41 +148,42 @@ export const CartPage = () => {
                 paddingTop: '50px',
             }}
         >
-            <Banner title="Cart" />
             <Flex style={{ width: '70%', gap: '30px', marginTop: '50px' }}>
                 <Col style={{ width: '70%' }}>
                     <Table
                         pagination={false}
                         dataSource={dataSource}
                         columns={columns}
-                        components={{
-                            header: {
-                                cell: (props: ThHTMLAttributes<HTMLTableCellElement>) => (
-                                    <th
-                                        {...props}
-                                        style={{
-                                            ...props.style,
-                                            backgroundColor: token.colorBgContainer,
-                                            textAlign: 'center',
-                                            fontSize: '18px',
-                                        }}
-                                    />
-                                ),
-                            },
-                            body: {
-                                cell: (props: TdHTMLAttributes<HTMLTableCellElement>) => (
-                                    <td
-                                        {...props}
-                                        style={{
-                                            ...props.style,
-                                            backgroundColor: '#fff',
-                                            textAlign: 'center',
-                                            fontSize: '16px',
-                                        }}
-                                    />
-                                ),
-                            },
-                        }}
+                        bordered
+                        style={{}}
+                        // components={{
+                        //     header: {
+                        //         cell: (props: ThHTMLAttributes<HTMLTableCellElement>) => (
+                        //             <th
+                        //                 {...props}
+                        //                 style={{
+                        //                     ...props.style,
+                        //                     // backgroundColor: token.colorBgContainer,
+                        //                     textAlign: 'center',
+                        //                     fontSize: '18px',
+                        //                 }}
+                        //             />
+                        //         ),
+                        //     },
+                        //     body: {
+                        //         cell: (props: TdHTMLAttributes<HTMLTableCellElement>) => (
+                        //             <td
+                        //                 {...props}
+                        //                 style={{
+                        //                     ...props.style,
+                        //                     backgroundColor: '#fff',
+                        //                     textAlign: 'center',
+                        //                     fontSize: '16px',
+                        //                 }}
+                        //             />
+                        //         ),
+                        //     },
+                        // }}
                     />
                 </Col>
                 <Col
@@ -256,7 +251,8 @@ export const CartPage = () => {
                                 color: customColors.colorQuaternaryText,
                             }}
                         >
-                            ${shippingFee}.00
+                            {/* ${shippingFee}.00 */}
+                            Free
                         </Text>
                     </Row>
                     <Row
