@@ -21,8 +21,12 @@ export const CustomTypographyContentTitle = styled(Typography)({
     color: `${customColors.colorSecondaryText}`,
 });
 
-
 export const CustomTypographyCartPrice = styled(Typography)({
     fontSize: '16px',
+    fontWeight: '500',
+});
+
+export const CustomTypographyCartPayment = styled(Typography)({
+    fontSize: '20px',
     fontWeight: '500',
 });

@@ -4,7 +4,7 @@ import Navbar from 'src/components/userComponents/navbar/Navbar';
 import { SignInPage } from 'src/pages/signIn/SignIn';
 import { SignUpPage } from 'src/pages/signUp/SignUp';
 import { AboutPage } from 'src/pages/user/about/About';
-import { CartPage } from 'src/pages/user/Cart/Cart';
+import { BagPage } from 'src/pages/user/Cart/Bag';
 import { CheckoutPage } from 'src/pages/user/Checkout/Checkout';
 import { ContactPage } from 'src/pages/user/Contact';
 import { HomePage } from 'src/pages/user/home/Home';
@@ -22,7 +22,7 @@ export const UserRoutes = () => {
                 <Route path="checkout" element={<CheckoutPage />} />
                 <Route path="about" element={<AboutPage />} />
                 <Route path="profile" element={<ProfilePage />} />
-                <Route path="cart" element={<CartPage />} />
+                <Route path="bag" element={<BagPage />} />
             </Route>
             <Route path="/signIn" element={<SignInPage />} />
             <Route path="/signUp" element={<SignUpPage />} />

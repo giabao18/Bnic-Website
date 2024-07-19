@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Image, Button, Flex, Row, Typography, theme, Divider } from 'antd';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
 import { IRootState } from 'src/redux/store';
 import { useSelector } from 'react-redux';
@@ -12,6 +10,7 @@ import { customColors } from 'src/theme';
 import { CustomButton2 } from 'src/theme/customButton';
 import { CustomDrawer } from 'src/theme/customDrawer';
 import { CustomTypographyCartPrice } from 'src/theme/customTypography';
+import { CloseOutlined, DeleteOutlined } from '@ant-design/icons';
 
 export interface IShoppingCart {
     isCartOpen: boolean;
@@ -45,18 +44,18 @@ export const ShoppingCart = ({ isCartOpen, handleCloseShoppingCart }: IShoppingC
                     <Divider style={{ background: '#ffffff', margin: '0' }} />
                     <Flex justify="space-between">
                         <CustomTypographyCartPrice>Subtotal</CustomTypographyCartPrice>
-                        <CustomTypographyCartPrice>$123</CustomTypographyCartPrice>
+                        <CustomTypographyCartPrice>${cart.totalPrice}</CustomTypographyCartPrice>
                     </Flex>
                     <Flex justify="space-between">
                         <CustomTypographyCartPrice>Tax</CustomTypographyCartPrice>
-                        <CustomTypographyCartPrice>$123</CustomTypographyCartPrice>
+                        <CustomTypographyCartPrice>$0</CustomTypographyCartPrice>
                     </Flex>
                     <Flex justify="space-between">
                         <CustomTypographyCartPrice>Total</CustomTypographyCartPrice>
-                        <CustomTypographyCartPrice>${cart.totalPrice}</CustomTypographyCartPrice>
+                        <CustomTypographyCartPrice>${cart.totalPrice + 0}</CustomTypographyCartPrice>
                     </Flex>
                     <Flex justify="flex-end">
-                        <Link to="/cart">
+                        <Link to="/bag">
                             <CustomButton2
                                 size="large"
                                 style={{
@@ -75,7 +74,6 @@ export const ShoppingCart = ({ isCartOpen, handleCloseShoppingCart }: IShoppingC
             }
         >
             <Flex vertical align="center">
-                {/* <Text style={{ fontSize: '22px', fontWeight: '600' }}>Shopping Cart</Text> */}
                 <Flex
                     style={{
                         flexDirection: 'column',
@@ -87,7 +85,7 @@ export const ShoppingCart = ({ isCartOpen, handleCloseShoppingCart }: IShoppingC
                     }}
                 >
                     {cart.items.map((item) => (
-                        <Flex vertical style={{width: '100%'}}>
+                        <Flex vertical style={{ width: '100%' }}>
                             <Text ellipsis style={{ fontSize: '18px', fontWeight: '500', marginBottom: '18px' }}>
                                 {item.name}
                             </Text>
@@ -99,25 +97,20 @@ export const ShoppingCart = ({ isCartOpen, handleCloseShoppingCart }: IShoppingC
                                     alignItems: 'center',
                                 }}
                             >
-                                <Row
-                                    style={{
-                                        alignItems: 'center',
-                                        gap: '20px',
-                                    }}
-                                >
+                                <Flex align="center" gap={10}>
                                     <Image
                                         src={item.image_dir}
-                                        alt=""
+                                        alt="product image"
                                         preview={{ mask: null }}
                                         style={{ width: '70px', borderRadius: '6px' }}
                                     ></Image>
-                                    <Flex style={{ flexDirection: 'column', gap: '5px' }}>
-                                        <Row
+                                    <Flex gap={5} style={{ flexDirection: 'column' }}>
+                                        <Flex
+                                            align="center"
+                                            gap={10}
                                             style={{
                                                 fontSize: '16px',
                                                 fontWeight: '600',
-                                                alignItems: 'center',
-                                                gap: '10px',
                                             }}
                                         >
                                             <Text
@@ -128,8 +121,7 @@ export const ShoppingCart = ({ isCartOpen, handleCloseShoppingCart }: IShoppingC
                                             >
                                                 {item.quantity}
                                             </Text>
-                                            <FontAwesomeIcon
-                                                icon={faXmark}
+                                            <CloseOutlined
                                                 style={{ marginTop: '3px', color: customColors.colorQuaternaryText }}
                                             />
                                             <Text
@@ -141,13 +133,12 @@ export const ShoppingCart = ({ isCartOpen, handleCloseShoppingCart }: IShoppingC
                                             >
                                                 ${item.price}
                                             </Text>
-                                        </Row>
+                                        </Flex>
                                     </Flex>
-                                </Row>
-                                <FontAwesomeIcon
-                                    icon={faCircleXmark}
+                                </Flex>
+                                <DeleteOutlined
                                     style={{
-                                        fontSize: '18px',
+                                        fontSize: '20px',
                                         color: customColors.colorQuaternaryText,
                                         cursor: 'pointer',
                                     }}
@@ -159,50 +150,6 @@ export const ShoppingCart = ({ isCartOpen, handleCloseShoppingCart }: IShoppingC
                         </Flex>
                     ))}
                 </Flex>
-
-                {/* <Row style={{ width: '100%', border: `1px solid ${customColors.colorQuaternaryText}`, margin: '20px 0' }} />
-            <Row style={{ width: '100%', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px' }}>
-                <Text style={{ fontSize: '16px', fontWeight: '500' }}>Subtotal</Text>
-                <Text style={{ fontSize: '18px', fontWeight: '500', color: token.colorPrimary }}>
-                    ${cart.totalPrice}
-                </Text>
-            </Row> */}
-                {/* <Row style={{ justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                <Link to="/cart">
-                    <Button
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            padding: '15px 20px',
-                            backgroundColor: 'transparent',
-                            borderRadius: '50px',
-                            fontSize: '16px',
-                            fontWeight: '500',
-                            border: `2px solid`,
-                        }}
-                    >
-                        Cart
-                    </Button>
-                </Link>
-                <Link to="/checkout">
-                    <Button
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            padding: '15px 20px',
-                            backgroundColor: 'transparent',
-                            borderRadius: '50px',
-                            fontSize: '16px',
-                            fontWeight: '500',
-                            border: `2px solid`,
-                        }}
-                    >
-                        Checkout
-                    </Button>
-                </Link>
-            </Row> */}
             </Flex>
         </CustomDrawer>
     );

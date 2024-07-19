@@ -214,7 +214,7 @@ export const Navbar = () => {
                                     icon={<ShoppingOutlined style={{ fontSize: '18px' }} />}
                                     style={{ background: 'transparent', border: 0, boxShadow: 'none' }}
                                     size="large"
-                                    onClick={() => navigate('/cart')}
+                                    onClick={() => navigate('/bag')}
                                 />
                             </Badge>
 

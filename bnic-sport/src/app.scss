@@ -1,5 +1,6 @@
 :root {
     --primary-color: #93ba4c;
+    --blurWhite-color: #898989;
 }
 
 body {
@@ -11,16 +12,16 @@ body {
 
     &::-webkit-scrollbar {
         width: 10px;
-        background-color: #898989;
+        background-color: #000000;
     }
 
     &::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        background-color: #898989;
+        background-color: #000000;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: #000000;
+        background: #898989;
         // border-radius: 10px;
     }
 }
