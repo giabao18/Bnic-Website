@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Flex, Row, Typography, Image, Col, theme, Breadcrumb } from 'antd';
-import { customColors, navBarHeight } from '../../../theme';
+import { Flex, Row, Typography, Image, Col, theme, Breadcrumb, Rate, Tag } from 'antd';
+import { customColors, marginBottom, navBarHeight } from '../../../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faStar, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { assets } from '../../../assets';
@@ -16,6 +16,7 @@ import { useDispatch } from 'react-redux';
 import { RatingForm } from 'src/components/userComponents/rating-form';
 import { Reviews } from 'src/components/userComponents/reviews';
 import { IProduct } from 'src/redux/products/productsSlice';
+import { CustomTag } from 'src/theme/customTag';
 
 const { Text } = Typography;
 
@@ -59,167 +60,104 @@ export const ProductDetailsPage = () => {
     };
 
     return (
-        <Flex
-            style={{
-                flexDirection: 'column',
-                alignItems: 'center',
-                width: '100%',
-                paddingTop: `${navBarHeight}`,
-                overflow: 'none',
-            }}
-        >
-            <Row
-                style={{
-                    width: '100%',
-                    alignItems: 'center',
-                    gap: '15px',
-                    backgroundColor: customColors.colorBgSecondary,
-                    padding: '20px 100px',
-                }}
-            >
-                <Breadcrumb
-                    separator=">"
-                    items={[
-                        {
-                            href: '/',
-                            title: <HomeOutlined />,
-                        },
-                        {
-                            href: '/shop',
-                            title: <Typography>Shop</Typography>,
-                        },
-                        {
-                            title: <Typography>{productDetail?.name}</Typography>,
-                        },
-                    ]}
-                />
-            </Row>
-            <Flex
-                style={{
-                    marginTop: '100px',
-                    justifyContent: 'space-between',
-                    width: '100%',
-                    padding: '0 100px',
-                    boxSizing: 'border-box',
-                }}
-            >
-                <Row style={{ gap: '20px', width: '50%', display:'flex', justifyContent: 'center' }}>
-                    {/* <Flex style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <Row
+        // <Flex
+        //     vertical
+        //     align="center"
+        //     style={{
+        //         paddingTop: `${navBarHeight}`,
+        //         width: '100%',
+        //         overflow: 'none',
+        //     }}
+        // >
+        <Row gutter={16} style={{ margin: `${navBarHeight} 0 ${marginBottom} 0` }}>
+            <Col span={12}>
+                <Flex style={{ gap: '20px', display: 'flex', justifyContent: 'center', width: '100%' }}>
+                    <Image preview={{ mask: null }} src={productDetail?.image_dir} width={500} />
+                </Flex>
+            </Col>
+
+            <Col span={12}>
+                <Flex vertical gap={20}>
+                    <Breadcrumb
+                        separator="/"
+                        items={[
+                            {
+                                href: '/',
+                                title: <HomeOutlined />,
+                            },
+                            {
+                                href: '/shop',
+                                title: <Typography>Shop</Typography>,
+                            },
+                            {
+                                title: <Typography>{productDetail?.name}</Typography>,
+                            },
+                        ]}
+                    />
+
+                    <Flex vertical gap={10}>
+                        <Text
                             style={{
-                                width: '80px',
-                                height: '80px',
-                                backgroundColor: customColors.colorBgSecondary,
-                                borderRadius: '10px',
-                                justifyContent: 'center',
-                                alignItems: 'center',
+                                fontSize: '40px',
+                                fontWeight: '500',
                             }}
                         >
-                            <Image preview={false} src={assets.asgaardSofa2} />
-                        </Row>
-                        <Row
+                            {productDetail?.name}
+                        </Text>
+
+                        <Text
                             style={{
-                                width: '80px',
-                                height: '80px',
-                                backgroundColor: customColors.colorBgSecondary,
-                                borderRadius: '10px',
-                                justifyContent: 'center',
-                                alignItems: 'center',
+                                fontSize: '28px',
+                                fontWeight: '500',
+                                color: `${customColors.colorPrimary}`,
                             }}
                         >
-                            <Image preview={false} src={assets.asgaardSofa3} />
-                        </Row>
-                        <Row
-                            style={{
-                                width: '80px',
-                                height: '80px',
-                                backgroundColor: customColors.colorBgSecondary,
-                                borderRadius: '10px',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <Image preview={false} src={assets.asgaardSofa4} />
-                        </Row>
-                        <Row
-                            style={{
-                                width: '80px',
-                                height: '80px',
-                                backgroundColor: customColors.colorBgSecondary,
-                                borderRadius: '10px',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <Image preview={false} src={assets.asgaardSofa5} />
-                        </Row>
-                    </Flex> */}
-                    <Image preview={{ mask: null }} src={productDetail?.image_dir} width={500}/>
-                </Row>
-                <Flex style={{ flexDirection: 'column', width: '50%' }}>
-                    <Text
-                        style={{
-                            fontSize: '40px',
-                            fontWeight: '400',
-                        }}
-                    >
-                        {productDetail?.name}
-                    </Text>
-                    <Text
-                        style={{
-                            fontSize: '24px',
-                            fontWeight: '500',
-                            color: customColors.colorQuaternaryText,
-                        }}
-                    >
-                        {productDetail?.price}
-                    </Text>
-                    <Row style={{ alignItems: 'center', gap: '15px', marginTop: '10px' }}>
-                        <Row style={{ alignItems: 'center', gap: '5px' }}>
-                            <FontAwesomeIcon
-                                icon={faStar}
-                                style={{ fontSize: '18px', color: customColors.colorYellow }}
-                            />
+                            ${productDetail?.price}
+                        </Text>
+
+                        <Flex gap={10} align="center">
+                            <Rate disabled defaultValue={3} />
+
                             <Text
                                 style={{
                                     fontSize: '18px',
                                     fontWeight: '400',
-                                    color: customColors.colorQuaternaryText,
                                 }}
                             >
-                                250
+                                5k Reviews
                             </Text>
-                        </Row>
+                        </Flex>
+
+                        <Flex>
+                            <CustomTag>Type</CustomTag>
+                            <CustomTag>Type</CustomTag>
+                            <CustomTag>Type</CustomTag>
+                        </Flex>
+                    </Flex>
+
+                    {/* <Flex vertical>
+                        <Text className="productDetail__container_title">Product Description</Text>
                         <Text
                             style={{
-                                fontSize: '20px',
-                                fontWeight: '500',
-                                color: customColors.colorQuaternaryText,
-                            }}
-                        >
-                            |
-                        </Text>
-                        <Text
-                            style={{
-                                fontSize: '18px',
+                                fontSize: '16px',
                                 fontWeight: '400',
+                                width: '100%',
+                                textAlign: 'justify',
                                 color: customColors.colorQuaternaryText,
                             }}
                         >
-                            5 Customer Review
+                            {productDetail?.description}
                         </Text>
-                    </Row>
-                    <Text
-                        style={{
-                            fontSize: '16px',
-                            fontWeight: '400',
-                            marginTop: '10px',
-                            width: '100%',
-                            textAlign: 'justify',
-                        }}
-                    >
-                        {productDetail?.description}
-                    </Text>
+                    </Flex> */}
+
+                    <Flex vertical>
+                        <Text className="productDetail__container_title">Color</Text>
+                    </Flex>
+
+                    <Flex vertical>
+                        <Text className="productDetail__container_title">Size</Text>
+                    </Flex>
+
                     <Row style={{ alignItems: 'center', gap: '100px' }}>
                         <Col style={{ marginTop: '20px' }}>
                             <Text
@@ -370,92 +308,7 @@ export const ProductDetailsPage = () => {
                         </Row>
                     </Row>
                 </Flex>
-            </Flex>
-            <Row
-                style={{
-                    width: '90%',
-                    border: `1px solid ${customColors.colorQuaternaryText}`,
-                    marginTop: '40px',
-                }}
-            />
-            <Flex style={{ flexDirection: 'column', justifyContent: 'center', padding: '0 100px' }}>
-                <Row style={{ marginTop: '20px', gap: '50px', justifyContent: 'center' }}>
-                    <Text
-                        style={{
-                            fontSize: '24px',
-                            fontWeight: tab === 'description' ? '500' : '400',
-                            color: tab === 'description' ? '#000' : customColors.colorQuaternaryText,
-                            cursor: 'pointer',
-                        }}
-                        onClick={() => setTab('description')}
-                    >
-                        Description
-                    </Text>
-                    <Text
-                        style={{
-                            fontSize: '24px',
-                            fontWeight: tab === 'reviews' ? '500' : '400',
-                            color: tab === 'reviews' ? '#000' : customColors.colorQuaternaryText,
-                            cursor: 'pointer',
-                        }}
-                        onClick={() => setTab('reviews')}
-                    >
-                        Reviews
-                    </Text>
-                </Row>
-                {tab === 'description' ? <Description /> : <Reviews />}
-                {isRating && (
-                    <Flex
-                        style={{
-                            position: 'fixed',
-                            top: 0,
-                            left: 0,
-                            width: '100vw',
-                            height: '100vh',
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            zIndex: 1000,
-                            overflow: 'hidden',
-                            animation: 'fadeIn 0.3s ease-in',
-                        }}
-                        onClick={() => setIsRating(false)}
-                    >
-                        <Flex
-                            onClick={(e) => e.stopPropagation()}
-                            style={{
-                                position: 'absolute',
-                                transform: 'translate(-50%, -50%)',
-                                left: '50%',
-                                top: '50%',
-                                animation: 'slideUp 0.3s ease-out',
-                            }}
-                        >
-                            <RatingForm setIsRating={setIsRating} />
-                        </Flex>
-                        <style>
-                            {`  
-                            @keyframes fadeIn {
-                                from {
-                                    background-color: rgba(0, 0, 0, 0);
-                                }
-                                to {
-                                    background-color: rgba(0, 0, 0, 0.7);
-                                }
-                            }
-                            @keyframes slideUp {
-                                from {
-                                    transform: translate(-50%, 100%);
-                                }
-                                to {
-                                    transform: translate(-50%, -50%);
-                                }
-                            }
-                        `}
-                        </style>
-                    </Flex>
-                )}
-            </Flex>
-        </Flex>
+            </Col>
+        </Row>
     );
 };

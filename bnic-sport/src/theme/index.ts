@@ -28,6 +28,7 @@ export const colorPalette = {
 };
 
 export const navBarHeight: string = '67px';
+export const marginBottom: string = '80px';
 
 export const textSize = {
     title: '28px',
@@ -63,7 +64,10 @@ export const theme: ThemeConfig = {
         Table: {
             bodySortBg: '#000000',
             borderColor: '#898989',
-        }
+        },
+        Rate: {
+            colorText: '#ffffff',
+        },
     },
 };
 

@@ -14,6 +14,7 @@ import {
     Slider,
     InputNumberProps,
     InputNumber,
+    Rate,
 } from 'antd';
 import { Banner } from '../../../components/userComponents/banner';
 import { Products } from '../../../components/userComponents/products';
@@ -206,14 +207,12 @@ export const ShopPage = () => {
                         </SubMenu>
 
                         <SubMenu key="rating" title="Rating">
-                            <Slider
-                                min={0}
-                                max={5}
-                                step={1}
-                                dots
+                            <Rate
+                                allowHalf
                                 style={{
                                     width: '80%',
                                     marginLeft: '38px',
+                                    fontSize: '24px',
                                 }}
                             />
                         </SubMenu>

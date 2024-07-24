@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Flex, Typography, Image, theme, Divider } from 'antd';
+import { Flex, Typography, Image, theme, Divider, Empty } from 'antd';
 import { customColors } from '../../../theme';
 import { Link } from 'react-router-dom';
 import './styles.scss';
@@ -55,7 +55,10 @@ export const BagPage = () => {
                         Bag
                     </Typography>
                     {cart.items.length === 0 ? (
-                        <CustomTypographyCartPayment>There are no item in your bag</CustomTypographyCartPayment>
+                        <>
+                            <CustomTypographyCartPayment>There are no item in your bag</CustomTypographyCartPayment>
+                            {/* <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} /> */}
+                        </>
                     ) : (
                         cart.items.map((item) => (
                             <Flex vertical>

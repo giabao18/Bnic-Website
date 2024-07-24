@@ -31,3 +31,13 @@ body {
 .ant-input-affix-wrapper-lg {
     border-color: #93ba4c;
 }
+
+// rate component custom
+:where(.css-dev-only-do-not-override-949zjf).ant-rate .ant-rate-star-first,
+:where(.css-dev-only-do-not-override-949zjf).ant-rate .ant-rate-star-second {
+    color: #393a37e6;
+}
+
+.ant-rate {
+    // color: var(--primary-color)
+}

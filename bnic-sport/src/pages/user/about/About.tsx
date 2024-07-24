@@ -66,9 +66,9 @@ export const AboutPage = () => {
     ];
 
     return (
-        <Flex style={{ flexDirection: 'column', alignItems: 'center' }}>
+        <Flex style={{ flexDirection: 'column', alignItems: 'center', paddingBottom: '80px' }}>
             <Flex style={{ position: 'relative' }}>
-                <div style={{ width: '100vw', margin: '0 auto', height: '800px', overflow: 'hidden' }}>
+                <div style={{ width: '100%', margin: '0 auto', height: '800px', overflow: 'hidden' }}>
                     <div>
                         <Image
                             style={{
